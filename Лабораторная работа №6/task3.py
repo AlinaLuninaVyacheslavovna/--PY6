@@ -14,7 +14,7 @@ OUTPUT_FILE = "output.csv"
                 writer.writerow(i, new_line="\n")
 
         return f
-# TODO реализовать функцию to_csv_file
+
 
 
 headers_list = ['longitude', 'latitude', 'housing_median_age', 'total_rooms', 'total_bedrooms', 'population', 'households', 'median_income', 'median_house_value']
@@ -25,7 +25,7 @@ data = [
     ['-118.360000', '33.820000', '28.000000', '67.000000', '15.000000', '49.000000', '11.000000', '6.135900', '330000.000000'],
 ]
 
-# TODO вызвать функцию to_csv_file и записать данные в файл
+
 
 with open(OUTPUT_FILE) as output_f:
     for line in output_f:
