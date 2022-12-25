@@ -6,12 +6,12 @@ OUTPUT_FILE = "output.csv"
     def to_csv_file(filename='', headers=[], rows=[], delimiter=",", new_line="\n"):
         with open(filename, 'w') as f:
             writer = csv.writer(f)
-            writer.writerow(headers, delimiter=",")
+            writer.writerow(headers, delimiter)
 
         for i in rows:
             with open(filename, 'a') as f:
                 writer = csv.writer(f)
-                writer.writerow(i, new_line="\n")
+                writer.writerow(i, new_line)
 
         return f
 
