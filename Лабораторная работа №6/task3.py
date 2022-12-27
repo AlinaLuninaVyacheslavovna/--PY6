@@ -1,20 +1,14 @@
-import csv
-
 OUTPUT_FILE = "output.csv"
 
 
-    def to_csv_file(filename='', headers=[], rows=[], delimiter=",", new_line="\n"):
-        with open(filename, 'w') as f:
-            writer = csv.writer(f)
-            writer.writerow(headers, delimiter)
+def to_csv_file(filename='', headers=[], rows=[], delimiter=",", new_line="\n"):
+    with open(filename, 'w') as f:
+        f.writelines(delimiter.join(headers) + new_line)
+    for i in rows:
+        with open(filename, 'a') as f:
+            f.writelines(delimiter.join(i) + new_line)
 
-        for i in rows:
-            with open(filename, 'a') as f:
-                writer = csv.writer(f)
-                writer.writerow(i, new_line)
-
-        return f
-
+    return f
 
 
 headers_list = ['longitude', 'latitude', 'housing_median_age', 'total_rooms', 'total_bedrooms', 'population', 'households', 'median_income', 'median_house_value']
@@ -25,7 +19,7 @@ data = [
     ['-118.360000', '33.820000', '28.000000', '67.000000', '15.000000', '49.000000', '11.000000', '6.135900', '330000.000000'],
 ]
 
-
+line = to_csv_file(OUTPUT_FILE, headers_list, data)
 
 with open(OUTPUT_FILE) as output_f:
     for line in output_f:
